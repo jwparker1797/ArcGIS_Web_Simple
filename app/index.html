@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>GID Editor: Prototype</title>
+
+    <script src="https://js.arcgis.com/calcite-components/1.0.0-beta.82/calcite.esm.js" type="module"></script>
+    <link rel="stylesheet" href="https://js.arcgis.com/calcite-components/1.0.0-beta.82/calcite.css" />
+
+    <script src="https://js.arcgis.com/4.23/"></script>
+    
+    <link disabled id="jsapi-theme-dark" rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/dark/main.css" />
+
+    <link id="jsapi-theme-light" rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css" />
+
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <calcite-loader active></calcite-loader>
+    <calcite-shell content-behind hidden>
+       <!--  Header slot  -->
+       <div slot="header" id="header">
+
+        <!-- Title -->
+        <h2 id="header-title" slot="header" style="float:left">
+          <!-- Dynamically populated -->
+        </h2>
+
+        <!-- Controls -->
+        <div id="header-controls" style="float:right;margin-right: 1rem;margin-top: .5rem;">
+          <!-- Dark Mode Switch -->
+          <calcite-label disable-spacing layout="inline" class="label-wrapper" style="float:left;margin-left:1rem;margin-top: 0.6rem;">
+            <calcite-icon icon="brightness" scale="s" class="switch-icon"></calcite-icon>
+            <calcite-switch></calcite-switch>
+            <calcite-icon icon="moon" scale="s" class="switch-icon"></calcite-icon>
+          </calcite-label>
+        </div>
+      </div>
+
+      <calcite-shell-panel slot="primary-panel" detached>
+        <calcite-action-bar slot="action-bar">
+          <calcite-action data-action-id="layers" icon="layers" text="Layers"></calcite-action>
+          <calcite-action data-action-id="basemaps" icon="basemap" text="Basemaps"></calcite-action>
+          <calcite-action data-action-id="legend" icon="legend" text="Legend"></calcite-action>
+          <calcite-action disabled data-action-id="editor" icon="pencil-square" text="Editor"></calcite-action>
+        </calcite-action-bar>
+
+        <!-- Map-specific panels (each one provides a div for a ArcGIS JavaScript API widget) -->
+        <calcite-panel heading="Layers" height-scale="l" data-panel-id="layers" hidden dismissible>
+          <div id="layers-container"></div>
+        </calcite-panel>
+        <calcite-panel heading="Basemaps" height-scale="l" data-panel-id="basemaps" hidden dismissible>
+          <div id="basemaps-container"></div>
+        </calcite-panel>
+        <calcite-panel heading="Legend" height-scale="l" data-panel-id="legend" hidden dismissible>
+          <div id="legend-container"></div>
+        </calcite-panel>
+        <calcite-panel heading="Editor" height-scale="l" data-panel-id="editor" hidden dismissible>
+          <div id="editor-container"></div>
+        </calcite-panel>
+        <div id="sketch-container"></div>
+
+      </calcite-shell-panel>
+      <div id="viewDiv"></div>
+    </calcite-shell>
+  </body>
+  <script src="index.js"></script>
+</html>

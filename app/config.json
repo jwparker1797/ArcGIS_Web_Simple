@@ -1,0 +1,16 @@
+{
+    "portalURL": "https://esb02.geocgi.local/portal/",
+    "categoryFilters": [
+        {
+            "listLayerTitle": "Post_Points",
+            "targetLayers": [
+                {"Post_Points": "fullname"},
+                {"Post_Vicinity": "fullname"},
+                {"Post_Perimeters": "fullname"}
+            ],
+            "zoomTo": false,
+            "filterRecords": true,
+            "multiSelect": true
+        }
+    ]
+}
