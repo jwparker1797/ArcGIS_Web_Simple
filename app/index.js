@@ -12,8 +12,11 @@ require([
   "esri/widgets/Expand"
 ], function(config, esriConfig, WebMap, MapView, BasemapGallery, LayerList, Legend, Editor, Sketch, GraphicsLayer, Expand) {
   const appConfig = JSON.parse(config);
-  esriConfig.portalUrl = appConfig.portalURL;
+  // esriConfig.portalUrl = appConfig.portalURL;
   params = new URLSearchParams(window.location.search)
+
+  esriConfig.portalUrl = params.get("portalUrl") ?? "https://www.arcgis.com/";
+
   const webmapId = params.get("webmap")
     ?? "0ebe9cf75e1748c290706fa66294c629"; // "cc3bd744b9a44feaa493dd867a1d48dd";
 
